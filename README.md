@@ -84,6 +84,4 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 
 Flutter Developer
 
-## 👨‍🏫 Supervised By
 
-**Mohamed Nabil**
