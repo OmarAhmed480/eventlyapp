@@ -1,4 +1,3 @@
-لو هتستخدم النص ده كـ **README لمشروع Evently على GitHub**، فالأفضل توحّده بدل وجود وصفين مختلفين. دي نسخة نهائية أنضف، وتحافظ على التفاصيل المهمة بدون تكرار:
 
 # 🎉 Evently
 
@@ -154,4 +153,4 @@ Built with **Flutter & Dart** and integrated with **Firebase**.
 
 #Flutter #Dart #Firebase #FlutterDeveloper #MobileDevelopment
 
-**ملاحظة صغيرة:** شلت `Light & Dark Mode` من Authentication لأنها مش جزء من تسجيل الدخول، وشلت التكرار بين الـ Features والـ Technologies، وخليت الـ README شكله أقرب لمشروع حقيقي على GitHub.
+
