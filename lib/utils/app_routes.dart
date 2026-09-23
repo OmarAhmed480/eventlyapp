@@ -10,6 +10,8 @@ class AppRoutes {
   static const String forgetRouteName="ForgetScreen";
 
   static const String addEventRouteName="AddEventScreen";
+  static const String detailsEventRouteName="DetailsEventScreen";
+  static const String editEventRouteName="EditEventScreen";
 
 
 }

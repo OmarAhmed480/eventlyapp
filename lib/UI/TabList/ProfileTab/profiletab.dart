@@ -2,7 +2,9 @@ import 'package:eventlyapp/UI/TabList/ProfileTab/widget/SettingsItem.dart';
 import 'package:eventlyapp/UI/TabList/ProfileTab/widget/languageDropdown.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
 import 'package:eventlyapp/utils/app_color.dart';
+import 'package:eventlyapp/utils/app_routes.dart';
 import 'package:eventlyapp/utils/app_styel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -41,19 +43,21 @@ class _ProfileTabState extends State<ProfileTab> {
             ),
             SizedBox(height: 16.h),
             Text(
-              "John Safwat",
+             FirebaseAuth.instance.currentUser?.displayName??"",
               style: themeProvider.isDarkMode()
                   ? AppStyle.bold20whiteColorTextDarkMode
                   : AppStyle.bold20blackColorTextLightMode,
             ),
             SizedBox(height: 4.h),
             Text(
-              "johnsafwat.route@gmail.com",
+              FirebaseAuth.instance.currentUser?.email??"",
               style: AppStyle.regular14secTextLightMode,
             ),
             SizedBox(height: 32.h),
             SettingsItem(
-              title: themeProvider.isDarkMode() ?AppLocalizations.of(context)!.lightMode:AppLocalizations.of(context)!.darkmode,
+              title: themeProvider.isDarkMode()
+                  ? AppLocalizations.of(context)!.lightMode
+                  : AppLocalizations.of(context)!.darkmode,
               isDark: themeProvider.isDarkMode(),
               trailing: Switch(
                 value: isDark,
@@ -75,7 +79,11 @@ class _ProfileTabState extends State<ProfileTab> {
               title: AppLocalizations.of(context)!.logout,
               isDark: themeProvider.isDarkMode(),
               trailing: const Icon(Icons.logout, color: AppColor.redColor),
-              onTap: () {},
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.of(context).pushReplacementNamed(AppRoutes.loginRouteName);
+
+              },
             ),
           ],
         ),

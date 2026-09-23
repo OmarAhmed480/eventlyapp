@@ -1,14 +1,13 @@
 import 'package:eventlyapp/l10n/app_localizations.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
 import 'package:eventlyapp/utils/app_color.dart';
-import 'package:eventlyapp/utils/app_routes.dart';
 import 'package:eventlyapp/utils/app_styel.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../utils/app_validator.dart';
-import '../../../../utils/custom_text_field.dart';
+import '../../../../generailWidget/app_validator.dart';
+import '../../../../generailWidget/custom_text_field.dart';
 
 class LoginFormFields extends StatelessWidget {
   final TextEditingController controllerEmail;
@@ -37,6 +36,9 @@ class LoginFormFields extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle: isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: controllerEmail,
           radius: 16.r,
           validator: AppValidators.validateEmail,
@@ -58,6 +60,9 @@ class LoginFormFields extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle: isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: controllerPassword,
           radius: 16.r,
           validator: AppValidators.validatePassword,

@@ -30,10 +30,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get lightMode => 'الوضع الفاتح';
 
   @override
+  String get theme => 'المظهر';
+
+  @override
   String get welcomeBack => '✨ مرحباً بعودتك';
 
   @override
   String get searchForEvent => 'ابحث عن حدث';
+
+  @override
+  String get letsStart => 'لنبدأ';
 
   @override
   String get thisIsABirthdayParty => 'هذه حفلة عيد ميلاد';
@@ -182,6 +188,39 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loading => 'جاري التحميل...';
 
   @override
+  String get eventDetails => 'تفاصيل الحدث';
+
+  @override
+  String get areYouSureYouWantToDeleteThisEvent =>
+      'هل أنت متأكد أنك تريد حذف هذا الحدث؟';
+
+  @override
+  String get editEvent => 'تعديل الحدث';
+
+  @override
+  String get updateEvent => 'تحديث الحدث';
+
+  @override
+  String get eventDeletedSuccessfully => 'تم حذف الحدث بنجاح';
+
+  @override
+  String get pleaseTryAgain =>
+      'تسجيل الدخول باستخدام Google غير صالح. من فضلك حاول مرة أخرى.';
+
+  @override
+  String get loginSuccessfully => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get emailAddressIsNotValid => 'عنوان البريد الإلكتروني غير صالح';
+
+  @override
+  String get networkRequestError => 'حدث خطأ في الاتصال بالشبكة';
+
+  @override
+  String get googleSignInSuccessfully =>
+      'تم تسجيل الدخول باستخدام Google بنجاح';
+
+  @override
   String get network_error => 'اتأكد من الاتصال بالإنترنت';
 
   @override
@@ -192,4 +231,59 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get operation_not_allowed => 'التسجيل مش متفعل في Firebase';
+
+  @override
+  String get personalizeYourExperience => 'خصّص تجربتك';
+
+  @override
+  String get personalizeYourExperienceContent =>
+      'اختر المظهر واللغة المفضّلين لديك لتبدأ تجربة مريحة ومخصّصة تناسب أسلوبك.';
+
+  @override
+  String get getStarted => 'ابدأ الآن';
+
+  @override
+  String get noFavoriteEventFound => 'لا توجد أحداث مفضلة';
+
+  @override
+  String get eventRemoveSuccessfully => 'تمت الإزالة بنجاح';
+
+  @override
+  String get eventUpdateSuccessfully => 'تم تحديث الحدث بنجاح';
+
+  @override
+  String get accountCreatedSuccessfully => 'تم إنشاء الحساب بنجاح';
+
+  @override
+  String get passwordTooWeak => 'كلمة المرور ضعيفة جدًا';
+
+  @override
+  String get accountAlreadyExists => 'يوجد حساب بالفعل بهذا البريد الإلكتروني';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get effortlessEventPlanning => 'تخطيط الفعاليات بسهولة';
+
+  @override
+  String get effortlessEventPlanningContent =>
+      'تخلّص من عناء تنظيم الفعاليات باستخدام أدوات التخطيط المتكاملة لدينا. بدءًا من إرسال الدعوات وإدارة تأكيدات الحضور، وصولًا إلى جدولة التذكيرات وتنظيم التفاصيل، نحن نوفر لك كل ما تحتاجه. خطط بسهولة وركّز على ما يهمك حقًا – إنشاء تجربة لا تُنسى لك ولضيوفك.';
+
+  @override
+  String get noEventFound => 'لم يتم العثور على أي فعالية';
+
+  @override
+  String get connectWithFriendsShareMoments => 'تواصل مع أصدقائك وشارك اللحظات';
+
+  @override
+  String get connectWithFriendsShareMomentsContent =>
+      'اجعل كل فعالية ذكرى مميزة من خلال مشاركة التجربة مع الآخرين. يتيح لك تطبيقنا دعوة أصدقائك وإبقاء الجميع على اطلاع والاحتفال باللحظات معًا. التقط لحظات الحماس وشاركها مع أصدقائك لتستعيد أجمل الذكريات وتحتفظ بها.';
+
+  @override
+  String get findEventsThatInspireYou => 'اكتشف فعاليات تلهمك';
+
+  @override
+  String get findEventsThatInspireYouContent =>
+      'انغمس في عالم من الفعاليات المصممة لتناسب اهتماماتك الفريدة. سواء كنت تحب الموسيقى الحية، أو ورش العمل الفنية، أو الفعاليات المهنية، أو حتى اكتشاف تجارب جديدة، ستجد لدينا ما يناسب الجميع. ستساعدك اقتراحاتنا المختارة بعناية على الاستكشاف والتواصل والاستفادة من كل فرصة من حولك.';
 }

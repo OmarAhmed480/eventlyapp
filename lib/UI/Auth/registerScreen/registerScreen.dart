@@ -2,20 +2,20 @@ import 'package:eventlyapp/UI/Auth/registerScreen/widget/clreadyHaveAccountWidge
 import 'package:eventlyapp/UI/Auth/registerScreen/widget/customAuthForm.dart';
 import 'package:eventlyapp/UI/Auth/registerScreen/widget/googleAuthButton.dart';
 import 'package:eventlyapp/UI/Auth/registerScreen/widget/orDividerWidget.dart';
+import 'package:eventlyapp/firebaseUtils.dart';
 import 'package:eventlyapp/l10n/app_localizations.dart';
+import 'package:eventlyapp/model/my_User.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
 import 'package:eventlyapp/utils/app_color.dart';
 import 'package:eventlyapp/utils/app_styel.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
+import '../../../generailWidget/function/dialogUtils.dart';
 import '../../../providers/app_theme_providers.dart';
 import '../../../utils/app_routes.dart';
 import '../loginScreen/widget/authButton.dart';
-
-
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -25,10 +25,18 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerPassword = TextEditingController();
-  final TextEditingController confirmPassword = TextEditingController();
-  final TextEditingController controllerName = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController(
+
+  );
+  final TextEditingController controllerPassword = TextEditingController(
+
+  );
+  final TextEditingController confirmPassword = TextEditingController(
+
+  );
+  final TextEditingController controllerName = TextEditingController(
+
+  );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -105,7 +113,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 AuthButton(
                   isDarkMode: themeProvider.isDarkMode(),
                   text: AppLocalizations.of(context)!.signup,
-                  onPressed: () {},
+                  onPressed: () {
+                    register();
+                  },
                 ),
                 SizedBox(height: 24.h),
                 AuthFooterWidget(
@@ -113,15 +123,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   message: AppLocalizations.of(context)!.alreadyHaveAnAccount,
                   actionText: AppLocalizations.of(context)!.login,
                   onPressed: () {
-                    Navigator.of(context).pushNamed(
-                      AppRoutes.loginRouteName,
-                    );
+                    Navigator.pushNamed(context, AppRoutes.loginRouteName);
                   },
                 ),
 
                 SizedBox(height: 32.h),
 
-                OrDividerWidget( isDarkMode: themeProvider.isDarkMode(), ),
+                OrDividerWidget(isDarkMode: themeProvider.isDarkMode()),
 
                 SizedBox(height: 32.h),
 
@@ -137,5 +145,105 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> register() async {
+    // TODO: Validate
+    if (_formKey.currentState!.validate()) {
+      // TODO: Hide Keyboard
+      FocusScope.of(context).unfocus();
+
+      try {
+        // TODO: Show Loading
+        DialogUtils.showLoadingDialog(
+          context: context,
+        );
+
+        // TODO: Create Account
+        final credential =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: controllerEmail.text,
+          password: controllerPassword.text,
+        );
+
+        // TODO: Create User
+        MyUser myUser = MyUser(
+          id: credential.user?.uid ?? "",
+          name: controllerName.text,
+          email: controllerEmail.text,
+        );
+
+        // TODO: Save User
+        await FirebaseUtils.addUserToFireStore(myUser);
+
+
+        // TODO: Close Loading
+        Navigator.pop(context);
+
+        // TODO: Success
+        await DialogUtils.showMessageDialog(
+          showOkButton: true,
+          onPressedOk: (){
+            Navigator.of(context).pop();
+          },
+          context: context,
+          text: AppLocalizations.of(context)!.accountCreatedSuccessfully,
+        );
+
+        // TODO: Go Home
+        Navigator.of(context).pushReplacementNamed(
+          AppRoutes.homeRouteName,
+        );
+      } on FirebaseAuthException catch (e) {
+        // TODO: Close Loading
+        Navigator.pop(context);
+
+        // TODO: Weak Password
+        if (e.code == 'weak-password') {
+          await DialogUtils.showMessageDialog(
+            showOkButton: true,
+            onPressedOk: (){
+              Navigator.of(context).pop();
+            },
+            context: context,
+            text: AppLocalizations.of(context)!.passwordTooWeak,
+          );
+
+          // TODO: Email Exists
+        } else if (e.code == 'email-already-in-use') {
+          await DialogUtils.showMessageDialog(
+            showOkButton: true,
+            onPressedOk: (){
+              Navigator.of(context).pop();
+            },
+            context: context,
+            text: AppLocalizations.of(context)!.accountAlreadyExists,
+          );
+
+          // TODO: Other Firebase Error
+        } else {
+          await DialogUtils.showMessageDialog(
+            showOkButton: true,
+            onPressedOk: (){
+              Navigator.of(context).pop();
+            },
+            context: context,
+            text: e.message ?? "Registration failed",
+          );
+        }
+      } catch (e) {
+        // TODO: Other Error
+        Navigator.pop(context);
+
+        await DialogUtils.showMessageDialog(
+          showOkButton: true,
+          onPressedOk: (){
+            Navigator.of(context).pop();
+          },
+          context: context,
+          text: e.toString(),
+        );
+      }
+    }
   }
 }

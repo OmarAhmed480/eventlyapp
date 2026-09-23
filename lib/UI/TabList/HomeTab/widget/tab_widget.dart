@@ -15,6 +15,8 @@ class TabWidget extends StatelessWidget {
 
   bool isSelected;
   String eventsName;
+
+
   Color selectedColor;
   Color unselectedColor;
   TextStyle selectedTextColor;

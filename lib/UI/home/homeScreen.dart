@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      body: Expanded(child: tabList[selectedIndex]),
+      body: tabList[selectedIndex],
     );
   }
 

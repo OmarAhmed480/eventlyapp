@@ -140,6 +140,12 @@ abstract class AppLocalizations {
   /// **'Light Mode'**
   String get lightMode;
 
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
   /// No description provided for @welcomeBack.
   ///
   /// In en, this message translates to:
@@ -151,6 +157,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search for an event'**
   String get searchForEvent;
+
+  /// No description provided for @letsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Start'**
+  String get letsStart;
 
   /// No description provided for @thisIsABirthdayParty.
   ///
@@ -440,6 +452,66 @@ abstract class AppLocalizations {
   /// **'Loading...'**
   String get loading;
 
+  /// No description provided for @eventDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Details'**
+  String get eventDetails;
+
+  /// No description provided for @areYouSureYouWantToDeleteThisEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this event?'**
+  String get areYouSureYouWantToDeleteThisEvent;
+
+  /// No description provided for @editEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Event'**
+  String get editEvent;
+
+  /// No description provided for @updateEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Event'**
+  String get updateEvent;
+
+  /// No description provided for @eventDeletedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Event deleted successfully'**
+  String get eventDeletedSuccessfully;
+
+  /// No description provided for @pleaseTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Sign-In Is Not Valid. Please Try Again.'**
+  String get pleaseTryAgain;
+
+  /// No description provided for @loginSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Successfully'**
+  String get loginSuccessfully;
+
+  /// No description provided for @emailAddressIsNotValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address is not valid'**
+  String get emailAddressIsNotValid;
+
+  /// No description provided for @networkRequestError.
+  ///
+  /// In en, this message translates to:
+  /// **'Thrown if there was a network request error'**
+  String get networkRequestError;
+
+  /// No description provided for @googleSignInSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Sign-In Successfully'**
+  String get googleSignInSuccessfully;
+
   /// No description provided for @network_error.
   ///
   /// In en, this message translates to:
@@ -463,6 +535,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Email/password sign-in is not enabled'**
   String get operation_not_allowed;
+
+  /// No description provided for @personalizeYourExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Experience'**
+  String get personalizeYourExperience;
+
+  /// No description provided for @personalizeYourExperienceContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
+  String get personalizeYourExperienceContent;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
+
+  /// No description provided for @noFavoriteEventFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Favorite Event Found'**
+  String get noFavoriteEventFound;
+
+  /// No description provided for @eventRemoveSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Remove Success Fully'**
+  String get eventRemoveSuccessfully;
+
+  /// No description provided for @eventUpdateSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Update Success Fully'**
+  String get eventUpdateSuccessfully;
+
+  /// No description provided for @accountCreatedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Created Successfully'**
+  String get accountCreatedSuccessfully;
+
+  /// No description provided for @passwordTooWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'The password provided is too weak.'**
+  String get passwordTooWeak;
+
+  /// No description provided for @accountAlreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'The account already exists for that email.'**
+  String get accountAlreadyExists;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @effortlessEventPlanning.
+  ///
+  /// In en, this message translates to:
+  /// **'Effortless Event Planning'**
+  String get effortlessEventPlanning;
+
+  /// No description provided for @effortlessEventPlanningContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.'**
+  String get effortlessEventPlanningContent;
+
+  /// No description provided for @noEventFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Event Found'**
+  String get noEventFound;
+
+  /// No description provided for @connectWithFriendsShareMoments.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect with Friends & Share Moments'**
+  String get connectWithFriendsShareMoments;
+
+  /// No description provided for @connectWithFriendsShareMomentsContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
+  String get connectWithFriendsShareMomentsContent;
+
+  /// No description provided for @findEventsThatInspireYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Events That Inspire You'**
+  String get findEventsThatInspireYou;
+
+  /// No description provided for @findEventsThatInspireYouContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive into a world of events crafted to fit your unique interests. Whether you\'re into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.'**
+  String get findEventsThatInspireYouContent;
 }
 
 class _AppLocalizationsDelegate

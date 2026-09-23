@@ -4,9 +4,10 @@ import 'package:eventlyapp/utils/app_color.dart';
 import 'package:eventlyapp/utils/app_styel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../generailWidget/app_validator.dart';
+import '../../../../generailWidget/custom_text_field.dart';
 
-import '../../../../utils/app_validator.dart';
-import '../../../../utils/custom_text_field.dart';
+
 
 class CustomAuthForm extends StatelessWidget {
   final TextEditingController controllerName;
@@ -41,6 +42,9 @@ class CustomAuthForm extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle:isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: controllerName,
           radius: 16.r,
           validator: AppValidators.validateName,
@@ -62,6 +66,9 @@ class CustomAuthForm extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle:isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: controllerEmail,
           radius: 16.r,
           validator: AppValidators.validateEmail,
@@ -83,6 +90,9 @@ class CustomAuthForm extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle:isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: controllerPassword,
           radius: 16.r,
           validator: AppValidators.validatePassword,
@@ -114,6 +124,9 @@ class CustomAuthForm extends StatelessWidget {
         SizedBox(height: 24.h),
 
         CustomTextField(
+          textStyle:isDarkMode
+              ? AppStyle.regular14secTextDarkMode
+              : AppStyle.regular14secTextLightMode.copyWith(color: AppColor.blackColor),
           controller: confirmPassword,
           radius: 16.r,
           validator: (text) {

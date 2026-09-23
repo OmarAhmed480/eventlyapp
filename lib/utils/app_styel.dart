@@ -4,6 +4,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_color.dart';
 
 class AppStyle {
+  static final TextStyle regular16SecTextLightMode = TextStyle(
+    color: AppColor.secTextLightMode,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final TextStyle regular16SecTextDarkMode = TextStyle(
+    color: AppColor.secTextDarkMode,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static final TextStyle regular20BlackColorTextLightMode = TextStyle(
+    color: AppColor.blackColor,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final TextStyle regular20WhiteColorTextDarkMode = TextStyle(
+    color: AppColor.whiteColor,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w400,
+  );
   static final TextStyle regular12mainBlueColorLightMode = TextStyle(
     color: AppColor.blueColor,
     fontSize: 12.sp,
@@ -57,6 +79,7 @@ class AppStyle {
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
   );
+
   static final TextStyle medium20blackColorTextLightMode = TextStyle(
     color: AppColor.blackColor,
     fontSize: 20.sp,
@@ -193,12 +216,37 @@ class AppStyle {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle semiBold14WhiteColorText = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColor.whiteColor,
+
+  );
+  static TextStyle regular14BlueColorText = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColor.blueColor,
+  );
   static final TextStyle semibold14mainBlueColor= TextStyle(
     color: AppColor.mainBlueColor,
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
   );
-
+  static final TextStyle semibold14WhiteColorText = TextStyle(
+    color: AppColor.whiteColor,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+  );
+  static final TextStyle regular14WhiteColorText = TextStyle(
+    color: AppColor.whiteColor,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle semiBold14WhiteColor = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColor.whiteColor,
+  );
   static final TextStyle semibold24mainBlueColor = TextStyle(
     color: AppColor.mainBlueColor,
     fontSize: 24.sp,

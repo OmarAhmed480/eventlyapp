@@ -8,10 +8,14 @@ class AppAssets {
   static const String beingCreativeDark3 = "assets/images/beingCreativeDark3.png";
   static const String beingCreativeDark4 = "assets/images/beingCreativeDark4.png";
   static const String moon = "assets/images/moon.png";
+  static const String moonDark= "assets/images/moonDaek.png";
+  static const String sunDark= "assets/images/sunDark.png";
   static const String sun = "assets/images/sun.png";
   static const String eventty = "assets/images/eventty.png";
   static const String eventty2 = "assets/images/eventty2.png";
   static const String lock = "assets/images/lock.png";
+
+
   static const String sms = "assets/images/sms.png";
   static const String eingCreative5 = "assets/images/beingCreative5.png";
   static const String changeSetting = "assets/images/change-setting.png";
@@ -29,6 +33,9 @@ class AppAssets {
   static const String meetingLite = "assets/images/meetingLite.png";
   static const String sportDark = "assets/images/sportDark.png";
   static const String sportLite = "assets/images/sportLite.png";
+  static const String delete = "assets/images/delete.png";
+  static const String edit = "assets/images/edit-2.png";
+  static const String calendarAddDark = "assets/images/calendar-addDark.png";
 
   static const String prandinDark = "assets/images/prandinDark.png";
   static const String prandinLight = "assets/images/prandinLite.png";

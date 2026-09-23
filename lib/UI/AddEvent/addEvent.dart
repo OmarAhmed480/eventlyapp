@@ -1,22 +1,24 @@
+import 'package:eventlyapp/UI/AddEvent/widget/eventAppBar.dart';
 import 'package:eventlyapp/UI/AddEvent/widget/eventCategoryList.dart';
 import 'package:eventlyapp/UI/AddEvent/widget/eventDateTimeRow.dart';
+import 'package:eventlyapp/firebaseUtils.dart';
 import 'package:eventlyapp/l10n/app_localizations.dart';
+import 'package:eventlyapp/model/event.dart';
+import 'package:eventlyapp/utils/app_Toast.dart';
 import 'package:eventlyapp/utils/app_assets.dart';
 import 'package:eventlyapp/utils/app_color.dart';
 import 'package:eventlyapp/utils/app_styel.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-
 import '../../../providers/app_theme_providers.dart';
+import '../../generailWidget/app_validator.dart';
+import '../../generailWidget/custom_text_field.dart';
+import '../../generailWidget/generalbutton.dart';
+import '../../providers/app_language_providers.dart';
 
-import '../../utils/app_validator.dart';
-import '../../utils/custom_text_field.dart';
-import '../../utils/generalbutton.dart';
-import '../TabList/HomeTab/widget/tab_widget.dart';
 
 class AddEvent extends StatefulWidget {
   AddEvent({super.key});
@@ -40,13 +42,10 @@ class _AddEventState extends State<AddEvent> {
   String eventsName = "";
   String eventsImages = "";
 
-  // late EventListProvider eventListProvider;
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
     var themeProvider = Provider.of<AppThemeProviders>(context);
-    // var listProvider = Provider.of<EventListProvider>(context);
+    var languageProvider = Provider.of<AppLanguageProviders>(context);
 
     eventsNameList = [
       AppLocalizations.of(context)!.sport,
@@ -77,50 +76,13 @@ class _AddEventState extends State<AddEvent> {
       backgroundColor: themeProvider.isDarkMode()
           ? AppColor.bGDarkMode
           : AppColor.bGLightMode,
-      appBar: AppBar(
-        backgroundColor: themeProvider.isDarkMode()
-            ? AppColor.bGDarkMode
-            : AppColor.bGLightMode,
-        centerTitle: true,
-        iconTheme: IconThemeData(
-          color: themeProvider.isDarkMode()
-              ? AppColor.whiteColor
-              : AppColor.blueColor,
-        ),
-
-        title: Text(
-          AppLocalizations.of(context)!.addEvent,
-          style: themeProvider.isDarkMode()
-              ? AppStyle.medium18whiteColorDarkMode
-              : AppStyle.medium18blackColorTextDarkMode,
-        ),
-        leading: Padding(
-          padding: REdgeInsets.all(8),
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Container(
-              padding: REdgeInsets.only(left: 10.w),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1.w,
-                  color: themeProvider.isDarkMode()
-                      ? AppColor.strokeBlueColor
-                      : AppColor.strokeWhiteColor,
-                ),
-                borderRadius: BorderRadius.circular(8.r),
-                color: themeProvider.isDarkMode()
-                    ? AppColor.inputsBlueDarkMode
-                    : AppColor.whiteColor,
-              ),
-              child: Icon(Icons.arrow_back_ios),
-            ),
-          ),
-        ),
+      appBar: EventAppBar(
+        themeProvider: themeProvider,
+        languageProvider: languageProvider,
+        title: AppLocalizations.of(context)!.addEvent,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: REdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -238,14 +200,14 @@ class _AddEventState extends State<AddEvent> {
                       ? AppColor.mainBlueColor
                       : AppColor.strokeBlueColor,
                   onPressed: () {
-                    // addEvent();
+                    addEvent();
                   },
                   child: Text(
                     AppLocalizations.of(context)!.addEvent,
                     style: AppStyle.medium20whiteColorTextDarkMode,
                   ),
                 ),
-                SizedBox(height: height * .06),
+                SizedBox(height: 60.h),
               ],
             ),
           ),
@@ -286,28 +248,39 @@ class _AddEventState extends State<AddEvent> {
     }
   }
 
-  // void addEvent(){
-  //   if(_formKey.currentState?.validate()==true){
-  //
-  //     final eventListProvider = Provider.of<EventListProvider>(context, listen: false);
-  //
-  //     Event event=Event(
-  //         eventTime:formattedTime,
-  //         eventDate:selectedDate!,
-  //         eventTitle: title,
-  //         eventDescription: description,
-  //         eventImage: eventsImages,
-  //         eventName: eventsName
-  //     );
-  //
-  //     FirebaseUtils.addEventlyToFireStore(event).timeout(
-  //         Duration(seconds: 1),
-  //         onTimeout: (){
-  //           print("Event Added SuccessFully..");
-  //           eventListProvider.getEventsFromFireStore();
-  //           Navigator.pop(context);
-  //         }
-  //     );
-  //   }
-  // }
+  void addEvent() {
+    if (_formKey.currentState?.validate() == true) {
+      Event event = Event(
+        eventDate: DateTime(
+          selectedDate!.year,
+          selectedDate!.month,
+          selectedDate!.day,
+          selectedTime!.hour,
+          selectedTime!.minute,
+        ),
+        eventCategoryIndex: selectedIndex ,
+        eventImage: eventsImages,
+        eventName: eventsName,
+        eventDescription: description,
+        eventTitle: title,
+      );
+
+      FirebaseUtils.addEventToFireStore(event,FirebaseAuth.instance.currentUser!.uid)
+          .then((value) {
+            AppToast.toastMsg(
+              msg: "Event Added Successfully",
+              backgroundColor: AppColor.blueColor,
+              textColor: AppColor.whiteColor,
+            );
+            Navigator.pop(context);
+          })
+          .catchError((error) {
+            AppToast.toastMsg(
+              msg: error.toString(),
+              backgroundColor: AppColor.blueColor,
+              textColor: AppColor.whiteColor,
+            );
+          });
+    }
+  }
 }

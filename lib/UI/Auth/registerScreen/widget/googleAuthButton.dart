@@ -5,7 +5,9 @@ import 'package:eventlyapp/utils/app_styel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../utils/generalbutton.dart';
+import '../../../../generailWidget/generalbutton.dart';
+
+
 
 class GoogleAuthButton extends StatelessWidget {
   final bool isDarkMode;

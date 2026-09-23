@@ -39,7 +39,7 @@ class AuthFooterWidget extends StatelessWidget {
             child: Text(
               actionText,
               style: isDarkMode
-                  ? AppStyle.semibold14mainBlueColor
+                  ? AppStyle.semibold24mainBlueColor
                   : AppStyle.semibold14mainBlueColor.copyWith(
                       color: AppColor.blueColor,
                     ),

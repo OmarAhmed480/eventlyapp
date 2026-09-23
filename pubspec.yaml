@@ -40,7 +40,14 @@ dependencies:
   flutter_screenutil: ^5.9.3
   provider: ^6.1.5+1
   introduction_screen: ^4.0.0
-
+  firebase_core: ^4.15.0
+  cloud_firestore: ^6.10.0
+  fluttertoast: ^9.0.0
+  firebase_auth: ^6.7.0
+  google_sign_in: ^7.2.0
+  flutter_animate: ^4.5.2
+  shared_preferences: ^2.5.5
+  flutter_native_splash: ^2.4.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

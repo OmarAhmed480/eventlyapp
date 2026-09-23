@@ -6,14 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SettingOptionRow extends StatelessWidget {
   final String title;
   final List<Widget> options;
-  final double spacing;
+
   final bool isDarkMode;
 
   SettingOptionRow({
     super.key,
     required this.title,
     required this.options,
-    required this.spacing,
+
     required this.isDarkMode,
   });
 
@@ -28,7 +28,7 @@ class SettingOptionRow extends StatelessWidget {
               : AppStyle.medium18blueColorDarkMode,
         ),
 
-        SizedBox(width: spacing.w),
+        Spacer(),
 
         ...options,
       ],
@@ -36,47 +36,109 @@ class SettingOptionRow extends StatelessWidget {
   }
 }
 
-class SettingOptionButton extends StatelessWidget {
-  final Widget child;
-  final VoidCallback onTap;
-  final bool isDarkMode;
-  final bool isSelected;
-  final double width;
 
-  const SettingOptionButton({
+
+class CustomActionButton extends StatelessWidget {
+  final bool isSelected;
+  final bool isDark;
+  final VoidCallback onTap;
+
+  final double width;
+  final double height;
+  final double borderWidth;
+  final double borderRadius;
+
+  // Light Mode - Selected
+  final Color selectedLightContainerColor;
+  final Color selectedLightBorderColor;
+  final TextStyle selectedLightTextStyle;
+
+  // Light Mode - Unselected
+  final Color unSelectedLightContainerColor;
+  final Color unSelectedLightBorderColor;
+  final TextStyle unSelectedLightTextStyle;
+
+  // Dark Mode - Selected
+  final Color selectedDarkContainerColor;
+  final Color selectedDarkBorderColor;
+  final TextStyle selectedDarkTextStyle;
+
+  // Dark Mode - Unselected
+  final Color unSelectedDarkContainerColor;
+  final Color unSelectedDarkBorderColor;
+  final TextStyle unSelectedDarkTextStyle;
+
+  final Widget child;
+
+  const CustomActionButton({
     super.key,
-    required this.child,
-    required this.onTap,
-    required this.isDarkMode,
     required this.isSelected,
-    this.width = 80,
+    required this.isDark,
+    required this.onTap,
+    required this.width,
+    required this.height,
+    required this.borderWidth,
+    required this.borderRadius,
+    required this.selectedLightContainerColor,
+    required this.selectedLightBorderColor,
+    required this.selectedLightTextStyle,
+    required this.unSelectedLightContainerColor,
+    required this.unSelectedLightBorderColor,
+    required this.unSelectedLightTextStyle,
+    required this.selectedDarkContainerColor,
+    required this.selectedDarkBorderColor,
+    required this.selectedDarkTextStyle,
+    required this.unSelectedDarkContainerColor,
+    required this.unSelectedDarkBorderColor,
+    required this.unSelectedDarkTextStyle,
+    required this.child,
   });
 
   @override
   Widget build(BuildContext context) {
+    final Color containerColor = isDark
+        ? (isSelected
+        ? selectedDarkContainerColor
+        : unSelectedDarkContainerColor)
+        : (isSelected
+        ? selectedLightContainerColor
+        : unSelectedLightContainerColor);
+
+    final Color borderColor = isDark
+        ? (isSelected
+        ? selectedDarkBorderColor
+        : unSelectedDarkBorderColor)
+        : (isSelected
+        ? selectedLightBorderColor
+        : unSelectedLightBorderColor);
+
+    final TextStyle textStyle = isDark
+        ? (isSelected
+        ? selectedDarkTextStyle
+        : unSelectedDarkTextStyle)
+        : (isSelected
+        ? selectedLightTextStyle
+        : unSelectedLightTextStyle);
+
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(8.r),
+      borderRadius: BorderRadius.circular(borderRadius.r),
       child: Container(
         alignment: Alignment.center,
-        height: 32.h,
+        height: height.h,
         width: width.w,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.r),
-          color: isSelected
-              ? (isDarkMode ? const Color(0xFF457AED) : const Color(0xFF0E3A99))
-              : (isDarkMode
-                    ? AppColor.inputsBlueDarkMode
-                    : AppColor.whiteColor),
           border: Border.all(
-            color: isSelected
-                ? Colors.transparent
-                : (isDarkMode
-                      ? AppColor.strokeBlueColor
-                      : AppColor.ofWhiteColor),
+            width: borderWidth.w,
+            color: borderColor,
           ),
+          color: containerColor,
+          borderRadius: BorderRadius.circular(borderRadius.r),
         ),
-        child: child,
+        child: DefaultTextStyle(
+          style: textStyle,
+          child: child,
+        ),
       ),
     );
   }
