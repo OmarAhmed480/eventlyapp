@@ -38,7 +38,6 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 ### 👤 Profile & Settings
 
 * View profile
-* Edit profile
 * Language settings
 * Light & Dark Mode
 * Logout
