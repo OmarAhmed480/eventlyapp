@@ -116,14 +116,6 @@ Make sure you have:
 * Android Emulator or Physical Device
 * Firebase project configured
 
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/OmarAhmed480/eventlyapp.git
-```
-
 Navigate to the project:
 
 ```bash
