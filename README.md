@@ -1,5 +1,6 @@
-
 # 🎉 Evently
+
+## 📅 Evently
 
 **Evently** is a modern Flutter event management application designed to help users **discover, create, organize, and manage events** through a clean and user-friendly interface.
 
@@ -12,6 +13,7 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 * Introduction screens
 * Language selection
 * Theme selection
+* Onboarding flow
 
 ### 🔐 Authentication
 
@@ -20,6 +22,7 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 * Forget Password
 * Google Sign-In
 * Secure Logout
+* Firebase Authentication
 
 ### 🏠 Home
 
@@ -28,17 +31,19 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 * Browse event categories
 * Filter events by category
 * Add new events
+* View event details
 
 ### ❤️ Favorites
 
 * Add events to favorites
 * Remove events from favorites
 * View favorite events
+* Synchronize favorite state with Firestore
 
 ### 👤 Profile & Settings
 
-* View profile
-* Language settings
+* View user profile
+* Change application language
 * Light & Dark Mode
 * Logout
 
@@ -51,58 +56,113 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project un
 * Select Date
 * Select Time
 * Add Event Description
-* Event Location
+* Add Event Location
+* Select Event Category
 
 ### 🌐 Localization
 
 * English
 * Arabic
+* RTL support
+* Save selected language using **SharedPreferences**
 
 ### 🌓 Theme
 
 * Light Mode
 * Dark Mode
+* Save selected theme using **SharedPreferences**
+* Theme management using **Provider**
 
-## 🏗️ Development Practices
+## 🏗️ Architecture & Development Practices
 
-* Clean Code
-* SOLID Principles
-* Design Patterns
+The application was developed using clean and maintainable coding practices.
+
+* **Clean Architecture**
+* **SOLID Principles**
+* **Provider State Management**
 * Separation of Concerns
 * Reusable Components
-* Provider State Management
+* Responsive UI
+* Firebase Integration
+* Local Data Persistence
+* Localization
+* Error Handling
+* Clean Code
 
 ## 🛠️ Built With
 
 * **Flutter & Dart**
-* **Firebase Authentication**
-* **Cloud Firestore**
-* **Google Sign-In**
-* **Provider**
-* **SharedPreferences**
-* **Flutter ScreenUtil**
-* **Flutter Localizations**
-* **Intl**
-* **Google Fonts**
-* **Introduction Screen**
-* **Flutter Native Splash**
-* **Flutter Animate**
-* **Fluttertoast**
+* **Firebase Core** — Firebase initialization
+* **Firebase Authentication** — User authentication
+* **Cloud Firestore** — Cloud database
+* **Google Sign-In** — Google authentication
+* **Provider** — State Management
+* **SharedPreferences** — Local data persistence
+* **Flutter ScreenUtil** — Responsive UI
+* **Flutter Localizations** — Localization
+* **Intl** — Internationalization and date formatting
+* **Google Fonts** — Custom fonts
+* **Introduction Screen** — Onboarding
+* **Flutter Animate** — UI animations
+* **Fluttertoast** — Toast notifications
 
 ## ☁️ Firebase Integration
 
-Firebase is used for authentication and cloud data management.
+The application uses **Firebase** for authentication and cloud data management.
 
-* Firebase Authentication for user accounts and Google Sign-In
-* Cloud Firestore for storing users and events
-* User events are associated with the authenticated user's Firebase UID
-* Favorite event state is synchronized with Firestore
+### 🔐 Firebase Authentication
 
-## 📱 Sample Events
+Firebase Authentication is used for:
 
-* **21 Jan** — This is a Birthday Party
-* **22 Jan** — Meeting for Updating The Development Method
-* **23 Jan** — Discover Unique Exhibitions and Talents
+* Email & Password Login
+* User Registration
+* Password Reset
+* Google Sign-In
+* Secure Logout
+
+### ☁️ Cloud Firestore
+
+Cloud Firestore is used for:
+
+* Storing user information
+* Storing events
+* Managing event data
+* Managing favorite events
+* Updating and deleting events
+* Associating events with authenticated users
+
+## 📱 Event Categories
+
+The application supports different event categories, including:
+
+* **Sport**
+* **Birthday**
+* **Meeting**
+* **Book Club**
+* **Exhibition**
+
+## 💾 Local Storage
+
+**SharedPreferences** is used to save user preferences locally, including:
+
+* Selected language
+* Selected theme
+* Onboarding state
+
+The saved preferences are restored when the application starts again.
+
+## 🎨 UI & Responsive Design
+
+The application uses **Flutter ScreenUtil** to provide a responsive user interface across different screen sizes.
+
+The project also uses:
+
+* Custom reusable widgets
+* Google Fonts
+* Light and Dark themes
+* Arabic RTL support
+* Animated UI components
+* Custom loading and error states
 
 ## 🚀 Getting Started
 
@@ -115,6 +175,9 @@ Make sure you have:
 * Android Studio or VS Code
 * Android Emulator or Physical Device
 * Firebase project configured
+* Firebase Authentication enabled
+* Cloud Firestore configured
+* Google Sign-In configured
 
 Navigate to the project:
 
@@ -140,8 +203,6 @@ flutter run
 
 **Flutter / Mobile Application Developer**
 
-Built with **Flutter & Dart** and integrated with **Firebase**.
+Built with **Flutter & Dart**, integrated with **Firebase**, and developed using **Clean Architecture, SOLID Principles, Provider, and reusable components**.
 
-#Flutter #Dart #Firebase #FlutterDeveloper #MobileDevelopment
-
-
+#Flutter #Dart #Evently #Firebase #Firestore #FirebaseAuth #GoogleSignIn #FlutterDeveloper #MobileDevelopment #CleanArchitecture #SOLID #Provider #SharedPreferences #FlutterProjects
